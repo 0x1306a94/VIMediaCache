@@ -37,6 +37,6 @@
 @interface VIResourceLoaderManager (Convenient)
 
 + (NSURL *)assetURLWithURL:(NSURL *)url;
-- (AVPlayerItem *)playerItemWithURL:(NSURL *)url;
 
+- (AVPlayerItem *)playerItemWithURL:(NSURL *)url options:(nullable NSDictionary<NSString *, id> *)options;
 @end

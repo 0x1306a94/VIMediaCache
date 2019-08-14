@@ -95,7 +95,7 @@
     [self.resourceLoaderManager cancelLoaders];
     
     NSURL *url = [NSURL URLWithString:@"https://mvvideo5.meitudata.com/56ea0e90d6cb2653.mp4"];
-    AVPlayerItem *playerItem = [self.resourceLoaderManager playerItemWithURL:url];
+    AVPlayerItem *playerItem = [self.resourceLoaderManager playerItemWithURL:url options:nil];
     self.playerItem = playerItem;
     
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
@@ -114,7 +114,7 @@
     VIResourceLoaderManager *resourceLoaderManager = [VIResourceLoaderManager new];
     self.resourceLoaderManager = resourceLoaderManager;
     
-    AVPlayerItem *playerItem = [resourceLoaderManager playerItemWithURL:url];
+    AVPlayerItem *playerItem = [resourceLoaderManager playerItemWithURL:url options:nil];
     self.playerItem = playerItem;
     
     VICacheConfiguration *configuration = [VICacheManager cacheConfigurationForURL:url];
