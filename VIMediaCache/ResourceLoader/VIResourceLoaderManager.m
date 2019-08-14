@@ -106,17 +106,17 @@ static NSString *kCacheScheme = @"__VIMediaCache___:";
 }
 
 - (AVPlayerItem *)playerItemWithURL:(NSURL *)url options:(nullable NSDictionary<NSString *, id> *)options {
-	VICacheConfiguration *conf = [VICacheManager cacheConfigurationForURL:url];
-	if (conf.progress >= 1.0) {
-		// 缓存完成,改为本地文件播放
-		NSString *videoPath = [conf.filePath stringByReplacingOccurrencesOfString:@".mt_cfg" withString:@""];
-		if ([[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {
-			NSURL *assetURL          = [NSURL fileURLWithPath:videoPath];
-			AVURLAsset *urlAsset     = [AVURLAsset URLAssetWithURL:assetURL options:options];
-			AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:urlAsset];
-			return playerItem;
-		}
-	}
+	//    VICacheConfiguration *conf = [VICacheManager cacheConfigurationForURL:url];
+	//    if (conf.contentInfo.downloadedContentLength >= conf.contentInfo.contentLength) {
+	//        // 缓存完成,改为本地文件播放
+	//        NSString *videoPath = [conf.filePath stringByReplacingOccurrencesOfString:@".mt_cfg" withString:@""];
+	//        if ([[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {
+	//            NSURL *assetURL          = [NSURL fileURLWithPath:videoPath];
+	//            AVURLAsset *urlAsset     = [AVURLAsset URLAssetWithURL:assetURL options:options];
+	//            AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:urlAsset];
+	//            return playerItem;
+	//        }
+	//    }
 
 	NSURL *assetURL      = [VIResourceLoaderManager assetURLWithURL:url];
 	AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:assetURL options:options];
